@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Medical Diagnosis System</title>
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+            font-family: 'icomoon';
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 1rem;
+            background: #000; 
+        }
+
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;  /* Reduced the gap between grid items */
+            padding: 15px;  /* Reduced padding around the grid */
+            max-width: 700px;  /* Reduced max-width for the grid */
+            margin: 0 auto;
+        }
+
+        .model-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 8px;  /* Reduced padding inside each card */
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            background-color: #000;  
+            font-size: 0.8rem; /* Further reduced font size */
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .model-card img {
+            width: 100%;
+            height: auto;
+            max-width: 90%;  /* Reduced the max width of images */
+            max-height: 90%;  /* Reduced the max height of images */
+            object-fit: cover;
+            transition: filter 0.3s;
+            filter: grayscale(100%);
+        }
+
+        .model-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .model-card h3 {
+            margin-top: 8px;  /* Reduced margin at the top */
+            font-size: 1.2em; /* Reduced font size further */
+            color: #f1f1f1;
+        }
+
+        .model-card p {
+            font-size: 0.8em; /* Reduced font size further */
+            color: #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f1f1f1;
+            margin: 30px 0;
+            font-weight: bold; /* Made the heading bold */
+            font-size: 2.5em; /* Increased font size */
+        }
+
+        .headline {
+            text-align: center;
+            color: #f1f1f1;
+            font-size: 1.8em; /* Slightly smaller font size for this message */
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Diagnostic Model</h1>
+    <!-- Replacing "Wanna Check yourself up?" with "We got you!!!" -->
+
+    <div class="model-grid">
+        <a href="{{ url_for('upload', model_type='osteoarthritis') }}" class="model-card">
+            <img src="img_1.jpg" alt="Osteoarthritis">
+            <h3>🦴 Osteoarthritis</h3>
+            <p>Classes: Glioma, Meningioma, No Tumor, Pituitary</p>
+        </a>
+        
+        <a href="{{ url_for('upload', model_type='retinopathy') }}" class="model-card">
+            <img src="img_2.jpg" alt="Diabetic Retinopathy">
+            <h3>👁️ Diabetic Retinopathy</h3>
+            <p>Classes: Normal, Osteopenia, Osteoporosis</p>
+        </a>
+        
+        <a href="{{ url_for('upload', model_type='brain_tumor') }}" class="model-card">
+            <img src="img_3.jpg" alt="Brain Tumor">
+            <h3>🧠 Brain Tumor</h3>
+            <p>Classes: No DR, DR</p>
+        </a>
+        
+        <a href="{{ url_for('upload', model_type='chest_xray') }}" class="model-card">
+            <img src="img_4.jpg" alt="Chest X-ray">
+            <p>Classes: COVID-19, Normal, Pneumonia, Tuberculosis</p>
+            <h3>🩺 Chest X-ray</h3>
+        </a>
+    </div>
+</body>
+</html>
